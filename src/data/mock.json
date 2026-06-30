@@ -1,0 +1,59 @@
+{
+  "text": {
+    "title": "文字模块",
+    "description": "用于展示角色背景、世界观笔记和说明文档。",
+    "items": [
+      {
+        "title": "角色档案：A-17",
+        "content": "代号 A-17，擅长远程情报与环境分析，常驻绿洲站点。"
+      },
+      {
+        "title": "任务日志 #032",
+        "content": "完成旧城区扫描，回收 12 条可用线索，预计明日整理。"
+      },
+      {
+        "title": "设定摘录",
+        "content": "每个节点站点都保存着旅人记忆，资料站是记忆中枢。"
+      }
+    ]
+  },
+  "image": {
+    "title": "图片模块",
+    "description": "用于收纳插图、截图和视觉素材。",
+    "items": [
+      {
+        "title": "站点入口",
+        "url": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "title": "情报中控台",
+        "url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "title": "夜间观测区",
+        "url": "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=900&q=80"
+      }
+    ]
+  },
+  "video": {
+    "title": "视频模块",
+    "description": "用于展示片段、回放与短视频档案。",
+    "items": [
+      {
+        "title": "主站巡览",
+        "url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+        "tag": "演示视频"
+      },
+      {
+        "title": "设备测试",
+        "url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
+        "tag": "实验记录"
+      },
+      {
+        "title": "任务回放",
+        "url": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+        "tag": "归档片段"
+      }
+    ]
+  }
+}
