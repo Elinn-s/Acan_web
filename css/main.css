@@ -1,0 +1,156 @@
+/* =============================================
+   全局变量 — 多巴胺配色
+   ============================================= */
+:root {
+  --pink:   #FF6B9D;
+  --purple: #C77DFF;
+  --yellow: #FFD93D;
+  --blue:   #4FC3F7;
+  --green:  #43E97B;
+  --orange: #FF9F43;
+
+  --font-display: 'Fredoka One', 'PingFang SC', 'Microsoft YaHei', cursive;
+  --font-body:    'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 重置 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+/* =============================================
+   背景
+   ============================================= */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  /* 彩色渐变遮罩，让背景更梦幻 */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 182, 218, 0.55) 0%,
+    rgba(199, 125, 255, 0.40) 45%,
+    rgba(178, 231, 255, 0.50) 100%
+  );
+  z-index: 1;
+}
+
+/* =============================================
+   粒子 Canvas
+   ============================================= */
+#particleCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =============================================
+   标题
+   ============================================= */
+.site-header {
+  position: fixed;
+  top: 5vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  letter-spacing: 0.08em;
+
+  /* 流动渐变文字 */
+  background: linear-gradient(
+    90deg,
+    var(--pink)   0%,
+    var(--purple) 25%,
+    var(--blue)   55%,
+    var(--green)  75%,
+    var(--pink)   100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleFlow 5s linear infinite;
+
+  /* 多层发光 */
+  filter:
+    drop-shadow(0 0 18px rgba(199, 125, 255, 0.6))
+    drop-shadow(0 0 40px rgba(255, 107, 157, 0.3));
+}
+
+@keyframes titleFlow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+/* =============================================
+   主舞台（人物 + 泡泡）
+   ============================================= */
+.main-stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 5;
+  /* 给泡泡留出横向空间 */
+  padding: 0 15vw;
+}
+
+/* 人物容器 */
+.character-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 人物立绘 */
+.character-img {
+  height: 82vh;
+  max-height: 720px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 30px rgba(199, 125, 255, 0.25));
+  animation: characterFloat 4s ease-in-out infinite;
+  transition: filter 0.4s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.character-wrapper:hover .character-img {
+  filter:
+    drop-shadow(0 8px 40px rgba(255, 107, 157, 0.45))
+    drop-shadow(0 0 60px rgba(199, 125, 255, 0.25));
+}
+
+@keyframes characterFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
