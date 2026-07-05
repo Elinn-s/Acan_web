@@ -1,23 +1,21 @@
-# Acan 资料站（结构化版本）
-
-当前已按“先导页 + 三个功能页独立”的方式整理，便于后续迭代。
+# Acan 资料站
 
 ## 目录结构
 
-- `src/pages/landing/`：先导页（入口视觉与引导）
-- `src/pages/display/`：展示页（总览与快速入口）
-- `src/pages/text/`：文字模块页
-- `src/pages/image/`：图片模块页
-- `src/pages/video/`：视频模块页
-- `src/shared/styles/`：共享样式（tokens/base/page-shell）
-- `src/shared/js/content-service.js`：共享数据读取与转义工具
-- `src/data/mock.json`：演示数据源（图片/视频 URL 在这里）
+- `main.py` / `pyproject.toml` / `uv.lock`：uv 管理的 Python 环境（暂未与网站部分关联）
+- `start.bat`：双击启动本地开发服务器并打开网站
+- `web/`：网站全部内容
+  - `index.html`：首页（泡泡导航 + 人物立绘）
+  - `config.js`：首页背景图/立绘等可改配置
+  - `css/`、`js/`：首页样式与脚本
+  - `data/landing/`：首页用的背景图、立绘图片
+  - `data/gallery/<分类>/`：图片资料站的图片，按分类放文件夹
+  - `modules/gallery/`：图片资料站模块（分类 tab + 灯箱）
+    - 加完图片后运行 `node web/modules/gallery/gen-manifest.js` 生成 `manifest.json`；
+      该脚本还会自动把伪装成 `.jpg` 的 HEIC（iPhone 照片常见问题）转换成真正的 JPEG
+  - `server.js`：零依赖本地静态服务器，供 `start.bat` 调用
+  - `package.json`：目前唯一依赖 `heic-convert`，用于上面的自动转码
 
-## 入口说明
+## 本地预览
 
-- 根入口：`/` -> `src/` -> 自动跳转到 `src/pages/landing/`
-- 先导页：`/src/pages/landing/`
-- 展示页：`/src/pages/display/`
-- 文字页：`/src/pages/text/`
-- 图片页：`/src/pages/image/`
-- 视频页：`/src/pages/video/`
+双击根目录的 `start.bat`，会自动启动服务器并打开浏览器访问 `http://localhost:5500/`。

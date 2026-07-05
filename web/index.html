@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acan 资料站</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bubbles.css">
+</head>
+<body>
+
+  <!-- 背景层 -->
+  <div class="bg-layer" id="bgLayer"></div>
+  <div class="bg-overlay"></div>
+
+  <!-- 标题：半透明白色大字，压在人物立绘后面 -->
+  <div class="brand-title">ACAN</div>
+
+  <!-- 主舞台：人物 + 泡泡导航 -->
+  <main class="main-stage">
+    <div class="character-wrapper">
+      <img class="character-img" id="characterImg" src="" alt="立绘">
+
+      <!-- 泡泡 1 — 图片资料站 -->
+      <div class="bubble bubble-1">
+        <a class="bubble-link" href="modules/gallery/index.html">
+          <span class="bubble-icon">🖼️</span>
+          <span class="bubble-label">图片</span>
+        </a>
+      </div>
+
+      <!-- 泡泡 2 — 视频（未上线） -->
+      <div class="bubble bubble-2 coming-soon">
+        <a class="bubble-link" href="javascript:void(0)" aria-disabled="true">
+          <span class="bubble-icon">🎬</span>
+          <span class="bubble-label">视频</span>
+        </a>
+      </div>
+
+      <!-- 泡泡 3 — 敬请期待 -->
+      <div class="bubble bubble-3 coming-soon">
+        <a class="bubble-link" href="javascript:void(0)" aria-disabled="true">
+          <span class="bubble-icon">✨</span>
+          <span class="bubble-label">敬请期待</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="js/bubbles.js"></script>
+</body>
+</html>
