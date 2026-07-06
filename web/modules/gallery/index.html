@@ -17,16 +17,34 @@
       <span class="back-arrow">←</span>
       <span>返回</span>
     </a>
-    <h1 class="gallery-title">图片资料站</h1>
-    <div class="header-spacer"></div>
+    <h1 class="gallery-title" id="galleryTitle"></h1>
+
+    <!-- 按日期跳转（下拉选年/月/日，只在配置了日历的分类下显示，由 JS 控制 hidden） -->
+    <div class="header-actions">
+      <div class="calendar-widget" id="calendarWidget" hidden>
+        <button type="button" class="calendar-toggle" id="calendarToggle" aria-expanded="false" aria-label="按日期跳转">📅</button>
+        <div class="calendar-panel" id="calendarPanel" hidden>
+          <p class="calendar-panel-title">按日期跳转</p>
+          <div class="calendar-picker">
+            <select id="calendarYearSelect"  aria-label="年"></select>
+            <select id="calendarMonthSelect" aria-label="月"></select>
+            <select id="calendarDaySelect"   aria-label="日"></select>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- 分类标签（由 JS 生成） -->
   <nav class="category-nav" id="categoryNav"></nav>
 
-  <!-- 图片网格（由 JS 生成） -->
+  <!-- 图片（由 JS 生成；有日历的分类会按日期分组，类似相册时间线） -->
   <main class="gallery-main">
-    <div class="image-grid" id="imageGrid"></div>
+    <div class="gallery-layout">
+      <!-- 左侧专栏筛选（只在配置了 filters 的分类下显示，由 JS 控制 hidden） -->
+      <aside class="filter-sidebar" id="filterSidebar" hidden></aside>
+      <div class="image-groups" id="imageGrid"></div>
+    </div>
   </main>
 
   <!-- 灯箱 -->

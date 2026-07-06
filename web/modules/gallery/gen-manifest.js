@@ -29,6 +29,19 @@ function isJpeg(buf) {
   return buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff;
 }
 
+// 图片日期：优先从文件名开头的 YYYYMMDD 读取（比如 20260513_1.png），
+// 没有的话退回文件的最后修改时间
+function extractDate(filePath, name) {
+  const m = name.match(/^(\d{4})(\d{2})(\d{2})/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+
+  const mtime = fs.statSync(filePath).mtime;
+  const y = mtime.getFullYear();
+  const mo = String(mtime.getMonth() + 1).padStart(2, '0');
+  const d = String(mtime.getDate()).padStart(2, '0');
+  return `${y}-${mo}-${d}`;
+}
+
 // HEIC/HEIF 文件是 ISO 基础媒体容器格式，头部结构是 [size(4)] "ftyp" [brand(4)] ...
 function detectContainerBrand(buf) {
   if (buf.length < 12 || buf.toString('ascii', 4, 8) !== 'ftyp') return null;
@@ -80,7 +93,10 @@ async function main() {
       .filter((f) => IMAGE_EXT.has(path.extname(f).toLowerCase()))
       .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
-    manifest[entry.name] = files;
+    manifest[entry.name] = files.map((f) => ({
+      file: f,
+      date: extractDate(path.join(folderPath, f), f),
+    }));
   }
 
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
