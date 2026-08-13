@@ -1,0 +1,151 @@
+{
+  "id": "2026-05-19-tops",
+  "ts": 20260519,
+  "title": "Tops",
+  "masthead": "Tops时尚人物520封面 | 灿若千面",
+  "date": "2026.05.19",
+  "intro": "她以千禧百变造型，在粉色柔软与金属硬核的临界点上，自如游弋",
+  "note": "无实体杂志（可恶）",
+  "source": "20260519Tops",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.0976,
+    "width": 0.7506
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #6a545f, #3b3136)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #2e2429 0%, #53424a 22%, #67525c 50%, #53424a 78%, #2e2429 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#f0efef",
+    "--edge-line": "#6b475959",
+    "--top-edge": "#dfdddd",
+    "--glow": "#eeb5a0",
+    "--accent": "#e56738",
+    "--paper": "#f6f6f6",
+    "--paper-ink": "#352c30",
+    "--paper-muted": "#87787f",
+    "--rule": "#5c3d4c2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1208,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1352,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1800,
+      "h": 1333,
+      "o": "l"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1352,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1352,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/11.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/12.webp",
+      "w": 1800,
+      "h": 1341,
+      "o": "l"
+    },
+    {
+      "src": "pages/13.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/14.webp",
+      "w": 1800,
+      "h": 1347,
+      "o": "l"
+    },
+    {
+      "src": "pages/15.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/16.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/17.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/18.webp",
+      "w": 1351,
+      "h": 1800,
+      "o": "p"
+    }
+  ]
+}

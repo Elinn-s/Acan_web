@@ -1,0 +1,133 @@
+{
+  "id": "2023-01-29",
+  "ts": 20230129,
+  "title": "孚世兔年",
+  "masthead": "孚世TRANSFORM | 兔年开年刊",
+  "date": "2023.01.29",
+  "intro": "我们无时不刻在期待自己的高光时刻，认为自己达到某个高度人生才是完美。而当下的努力与成长的旖旎才是最值得回味的",
+  "note": "杂志内页",
+  "source": "20230129孚世兔年",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.085,
+    "width": 0.75
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #655c44, #322f25)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #252219 0%, #4d4633 22%, #625942 50%, #4d4633 78%, #252219 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#f0f0ef",
+    "--edge-line": "#6b614759",
+    "--top-edge": "#dfdedd",
+    "--glow": "#e1eea0",
+    "--accent": "#c9e637",
+    "--paper": "#f6f6f6",
+    "--paper-ink": "#35332c",
+    "--paper-muted": "#878378",
+    "--rule": "#5c533d2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1068,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1080,
+      "h": 1619,
+      "o": "p"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1080,
+      "h": 1620,
+      "o": "p"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1080,
+      "h": 1621,
+      "o": "p"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1620,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 1080,
+      "h": 1621,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1080,
+      "h": 1621,
+      "o": "p"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1477,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/11.webp",
+      "w": 1620,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/12.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/13.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/14.webp",
+      "w": 1620,
+      "h": 1080,
+      "o": "l"
+    },
+    {
+      "src": "pages/15.webp",
+      "w": 1621,
+      "h": 1080,
+      "o": "l"
+    }
+  ]
+}

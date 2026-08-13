@@ -1,0 +1,144 @@
+{
+  "id": "2026-05-15",
+  "ts": 20260515,
+  "title": "一寸清欢",
+  "masthead": "孚世 TRANSFORM 五月刊 | 一寸清欢",
+  "date": "2026.05.15",
+  "intro": "在古朴静谧的氛围里，寻得一份不被俗世打扰的松弛，这便是藏在烟火古巷里，最妥帖的一寸清欢",
+  "note": "",
+  "source": "20260515孚世",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.0892,
+    "width": 0.75
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #706244, #3b3528)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #2d281c 0%, #574c35 22%, #6d5f42 50%, #574c35 78%, #2d281c 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#f0f0ef",
+    "--edge-line": "#6b5f4759",
+    "--top-edge": "#dfdedd",
+    "--glow": "#eec7a0",
+    "--accent": "#e69037",
+    "--paper": "#f6f6f6",
+    "--paper-ink": "#36332b",
+    "--paper-muted": "#8a8375",
+    "--rule": "#5c523d2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1200,
+      "h": 1600
+    },
+    {
+      "src": "cover-b.webp",
+      "w": 1200,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 675,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1204,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/11.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/12.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/13.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    },
+    {
+      "src": "pages/14.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/15.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    },
+    {
+      "src": "pages/16.webp",
+      "w": 1800,
+      "h": 1350,
+      "o": "l"
+    }
+  ]
+}

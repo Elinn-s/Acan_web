@@ -110,6 +110,40 @@ body.is-reading .shelf {
     linear-gradient(180deg, rgba(255, 220, 170, .28), transparent 45%);
 }
 
+/* 隔板上的序号标签：一本书一张，位置由 shelf.js 对着书脊贴 */
+.case__tags {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.tag {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(var(--tilt, 0deg));
+  padding: .18em .5em .22em;
+  border-radius: 1px;
+  font-size: clamp(8px, 1.5vh, 12px);
+  line-height: 1;
+  letter-spacing: .14em;
+  font-variant-numeric: tabular-nums;
+  color: #4a331d;
+  background: linear-gradient(180deg, #f4e6c9, #e2cda6);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, .45),
+    inset 0 1px 0 rgba(255, 255, 255, .6);
+  transition: color .3s, background-color .3s, box-shadow .3s;
+}
+.tag.is-on {
+  color: #2b1c0c;
+  background: linear-gradient(180deg, #fff6e0, #f0dcb4);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, .5),
+    inset 0 1px 0 rgba(255, 255, 255, .75),
+    0 0 12px -2px rgba(255, 226, 170, .9);
+}
+
 /* 侧板 */
 .case__side {
   position: absolute;
@@ -231,43 +265,34 @@ body.is-reading .shelf {
 }
 
 /* 书脊内容 */
-.face--spine .art {
-  position: absolute;
-  inset: 0;
-  opacity: .9;
-}
-.face--spine .art svg { width: 100%; height: 100%; display: block; }
-
 .spine__title {
   position: absolute;
-  inset: 12% 0 14%;
+  inset: 11% 0 13%;
   display: flex;
   align-items: center;
   justify-content: center;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-family: var(--title-font);
-  font-size: clamp(15px, calc(var(--t) * .34), 52px);
+  font-size: var(--spine-fs, 16px);
   letter-spacing: var(--spine-tracking);
   line-height: 1;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .55);
   white-space: nowrap;
 }
+/* 拉丁刊名竖着一个个立起来太难认，整行躺倒。
+   做法：先摆一个「书脊长 × 书脊宽」的横排文本框，居中，再整体转 90°。
+   0.74 要和 templates.js 里算字号用的那个系数对上。 */
 [data-spine="rotate"] .spine__title {
-  text-orientation: mixed;
-  font-size: clamp(13px, calc(var(--t) * .30), 40px);
+  writing-mode: horizontal-tb;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--h) * .74);
+  height: var(--t);
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center;
   text-transform: uppercase;
-}
-
-.spine__no {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 3.5%;
-  text-align: center;
-  font-size: clamp(9px, calc(var(--t) * .16), 20px);
-  letter-spacing: .1em;
-  opacity: .78;
 }
 
 /* 边缘白光 */
@@ -296,40 +321,18 @@ body.is-reading .shelf {
   opacity: .8;
 }
 
-/* 封面 */
+/* 封面：直接铺真封面照 */
 .cover {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 8% 9%;
+  display: block;
 }
-.cover .art { position: absolute; inset: 0; }
-.cover .art svg { width: 100%; height: 100%; display: block; }
-.cover__title {
-  position: relative;
-  font-family: var(--title-font);
-  font-size: calc(var(--w) * .115);
-  letter-spacing: var(--title-tracking);
-  line-height: 1.35;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, .45);
+.cover .ph {
+  position: absolute;
+  inset: 0;
 }
-.cover__rule {
-  position: relative;
-  width: 34%;
-  height: 1px;
-  margin: 6% 0 4%;
-  background: currentColor;
-  opacity: .55;
-}
-.cover__date {
-  position: relative;
-  font-family: var(--body-font);
-  font-size: calc(var(--w) * .042);
-  letter-spacing: .3em;
-  opacity: .7;
-}
+/* 刊名印在封面照上，裁掉就不好看了，宁可留边 */
+.cover .ph img { object-fit: contain; }
 
 /* 与隔板的接触阴影 */
 .book__shadow {

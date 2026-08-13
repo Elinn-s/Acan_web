@@ -1,0 +1,11 @@
+{
+  "name": "acan-web-tools",
+  "private": true,
+  "description": "本地构建脚本，只在作者机器上跑，不参与站点运行时",
+  "scripts": {
+    "build": "node build-magazines.js"
+  },
+  "dependencies": {
+    "sharp": "^0.34.0"
+  }
+}

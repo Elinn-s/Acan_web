@@ -185,8 +185,16 @@
   padding: calc(var(--u) * 9) calc(var(--u) * 8) calc(var(--u) * 8);
 }
 
-.ph { position: relative; overflow: hidden; background: rgba(0, 0, 0, .06); }
+/* 图框。留白处要露出纸色，所以自己不带底色 */
+.ph {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
 .ph img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 内页里的照片点一下看原图 */
+.pg .ph[data-zoom] { cursor: zoom-in; }
 
 /* --------------------------------------------------- 各版式 */
 
@@ -236,15 +244,16 @@
   line-height: 2;
   text-align: justify;
 }
-.t-note {
+/* txt 里「标题：」那行的刊名+期号，落在扉页最下面 */
+.t-mast {
   margin-top: auto;
   padding-top: calc(var(--u) * 5);
   font-size: calc(var(--u) * 2.3);
   line-height: 1.95;
+  letter-spacing: .1em;
   color: var(--paper-muted);
   border-top: 1px solid var(--rule);
 }
-.t-note a,
 .pg a {
   color: var(--paper-ink);
   text-decoration: none;
@@ -257,103 +266,64 @@
   color: var(--paper);
 }
 
-/* 整版出血 */
+/* 整版：竖图铺满一页。开本就是照多数图的宽高比定的，
+   合不上的那几张宁可留白边也不裁，所以用 contain。 */
 .pg--full .ph { position: absolute; inset: 0; }
-.pg--full .cap {
+.pg--full .ph img { object-fit: contain; }
+
+/* 横图跨中缝：左右两页放同一张图的两半。
+   图框做成两页宽，右页往左挪一页，接缝正好落在中缝上。 */
+.pg--bleedL .ph,
+.pg--bleedR .ph {
   position: absolute;
-  left: calc(var(--u) * 8);
-  right: calc(var(--u) * 8);
-  bottom: calc(var(--u) * 7);
-  z-index: 4;
-  font-size: calc(var(--u) * 2.3);
-  letter-spacing: .16em;
+  top: 0;
+  bottom: 0;
+  width: 200%;
+}
+.pg--bleedL .ph { left: 0; }
+.pg--bleedR .ph { left: -100%; }
+.pg--bleedL .ph img,
+.pg--bleedR .ph img { object-fit: contain; }
+
+/* 横图落在右页时的退路：单页居中，同样不裁 */
+.pg--wide .pg__body { justify-content: center; }
+.pg--wide .ph {
+  flex: 0 1 auto;
+  background: none;
+}
+.pg--wide .ph img {
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 照片页上的页码压在图上，得亮起来才看得见 */
+.pg--full .pg__folio,
+.pg--bleedL .pg__folio,
+.pg--bleedR .pg__folio {
   color: #fff;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, .7);
-}
-.pg--full::after {
-  background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, transparent 34%);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .85);
 }
 
-/* 留白图版 */
-.pg--plate .ph {
-  flex: 1;
-  outline: 1px solid var(--rule);
-  outline-offset: calc(var(--u) * 1.4);
-}
-.pg--plate .plate__foot {
+/* 花絮这类另起一节的隔页 */
+.pg--section .pg__body { justify-content: center; }
+.pg--section .sec {
   display: flex;
-  align-items: baseline;
-  gap: calc(var(--u) * 2.5);
-  margin-top: calc(var(--u) * 5);
-  font-size: calc(var(--u) * 2.2);
-  color: var(--paper-muted);
-  letter-spacing: .18em;
-}
-.pg--plate .plate__no {
-  font-family: var(--title-font);
-  font-size: calc(var(--u) * 3.4);
-  color: var(--accent);
-}
-
-/* 图 + 说明 */
-.pg--caption .ph { flex: 0 0 58%; }
-.pg--caption .cap__head {
-  margin-top: calc(var(--u) * 5);
-  font-family: var(--title-font);
-  font-size: calc(var(--u) * 3.6);
-  letter-spacing: .2em;
-}
-.pg--caption .cap__body {
-  margin-top: calc(var(--u) * 3);
-  font-size: calc(var(--u) * 2.6);
-  line-height: 2;
-  text-align: justify;
-}
-
-/* 语录页 */
-.pg--quote .pg__body {
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding-inline: calc(var(--u) * 13);
+  gap: calc(var(--u) * 4);
 }
-.pg--quote .q {
-  font-family: var(--title-font);
-  font-size: calc(var(--u) * 4.6);
-  line-height: 2.1;
-  letter-spacing: .12em;
-  white-space: pre-line;
-}
-.pg--quote .q__by {
-  margin-top: calc(var(--u) * 6);
-  font-size: calc(var(--u) * 2.1);
-  letter-spacing: .26em;
-  color: var(--paper-muted);
-}
-.pg--quote .pg__body::before,
-.pg--quote .pg__body::after {
-  content: "";
-  width: calc(var(--u) * 9);
+.pg--section .sec__rule {
+  flex: 1;
   height: 1px;
-  background: var(--accent);
-  opacity: .6;
-  margin: 0 auto calc(var(--u) * 7);
+  background: var(--rule);
 }
-.pg--quote .pg__body::after { margin: calc(var(--u) * 7) auto 0; }
-
-/* 双图 */
-.pg--duo .ph { flex: 1; }
-.pg--duo .ph + .ph { margin-top: calc(var(--u) * 3); }
-.pg--duo .cap {
-  margin-top: calc(var(--u) * 3.5);
-  font-size: calc(var(--u) * 2.1);
-  letter-spacing: .16em;
-  color: var(--paper-muted);
+.pg--section .sec__label {
+  font-family: var(--title-font);
+  font-size: calc(var(--u) * 5);
+  letter-spacing: .5em;
+  text-indent: .5em;
+  color: var(--paper-ink);
 }
-
-/* 三图 */
-.pg--grid3 .grid3 { flex: 1; display: grid; gap: calc(var(--u) * 2.6); grid-template-rows: 1.5fr 1fr; }
-.pg--grid3 .grid3__row { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 2.6); }
 
 /* 版权/结尾页 */
 .pg--colophon .pg__body { justify-content: flex-end; }
@@ -389,6 +359,7 @@
 }
 .pg--cover::after,
 .pg--cover::before { display: none; }
+.pg--cover .ph { background: none; }
 
 /* --------------------------------------------------- 单页模式 */
 

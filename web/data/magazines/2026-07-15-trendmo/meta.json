@@ -1,0 +1,139 @@
+{
+  "id": "2026-07-15-trendmo",
+  "ts": 20260715,
+  "title": "Mermaid",
+  "masthead": "Trendmo趋势 | Mermaid",
+  "date": "2026.07.15",
+  "intro": "她不必与鲛珠争辉，月光落在深海，从来不需要被照亮。",
+  "note": "无实体刊，有采访 https://weibo.com/6530289599/R8OoUpSJZ",
+  "source": "20260715Trendmo趋势",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.0892,
+    "width": 0.75
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #4a4864, #282834)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #1c1c26 0%, #38374d 22%, #474661 50%, #38374d 78%, #1c1c26 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#eff0f0",
+    "--edge-line": "#49476b59",
+    "--top-edge": "#dddedf",
+    "--glow": "#a0beee",
+    "--accent": "#377ae6",
+    "--paper": "#f6f6f6",
+    "--paper-ink": "#2c2c35",
+    "--paper-muted": "#787887",
+    "--rule": "#3e3d5c2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1199,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1080,
+      "h": 1799,
+      "o": "p"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/11.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/12.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/13.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/14.webp",
+      "w": 1200,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/15.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/16.webp",
+      "w": 1080,
+      "h": 1799,
+      "o": "p"
+    }
+  ]
+}

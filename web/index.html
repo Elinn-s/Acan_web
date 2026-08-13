@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Acan · 书架</title>
-<meta name="description" content="一个可交互的书架，每本书是一册写真集。">
+<meta name="description" content="一个可交互的书架，每本书是一本杂志。">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/shelf.css">
 <link rel="stylesheet" href="css/reader.css">
+<link rel="stylesheet" href="css/zoom.css">
 </head>
 <body>
 
@@ -21,7 +22,10 @@
       <div class="case__light"></div>
     </div>
 
-    <div class="case__board"><span class="case__board-face"></span></div>
+    <div class="case__board">
+      <span class="case__board-face"></span>
+      <div class="case__tags" id="tags" aria-hidden="true"></div>
+    </div>
     <div class="case__side case__side--l" aria-hidden="true"></div>
     <div class="case__side case__side--r" aria-hidden="true"></div>
   </div>
@@ -54,6 +58,27 @@
   </div>
 
   <button class="close" id="close" type="button" aria-label="放回书架" hidden>
+    <span></span><span></span>
+  </button>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-label="看原图" hidden>
+  <div class="zoom__view" id="zoom-view">
+    <img class="zoom__img" id="zoom-img" alt="" draggable="false">
+  </div>
+
+  <div class="zoom__bar">
+    <button class="hud__btn" id="zoom-prev" type="button" aria-label="上一张">‹</button>
+    <span class="hud__folio" id="zoom-count"></span>
+    <button class="hud__btn" id="zoom-next" type="button" aria-label="下一张">›</button>
+  </div>
+
+  <p class="zoom__hint">
+    <span class="zoom__hint--fine">滚轮缩放 · 拖动看边缘 · 双击复原</span>
+    <span class="zoom__hint--coarse">双指缩放 · 单指拖动 · 左右滑动换图</span>
+  </p>
+
+  <button class="close close--zoom" id="zoom-close" type="button" aria-label="收起原图">
     <span></span><span></span>
   </button>
 </div>

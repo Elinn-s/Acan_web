@@ -9,3 +9,8 @@ wheels/
 # Virtual environments
 .venv
 # .claude
+
+# 杂志原图（几百 MB，只留在本机）。站点跑的是
+# web/tools/build-magazines.js 压出来的 web/data/magazines/
+web/data/magazine/
+web/tools/node_modules/

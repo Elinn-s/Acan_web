@@ -1,0 +1,103 @@
+{
+  "id": "2026-07-10-ellemen",
+  "ts": 20260710,
+  "title": "ELLEMEN七月",
+  "masthead": "ELLEMEN七月刊",
+  "date": "2026.07.10",
+  "intro": "镜头之外，她仍在继续书写自己的答案",
+  "note": "杂志内页",
+  "source": "20260710ELLEMEN",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.064,
+    "width": 0.7778
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #91433d, #522d2a)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #45201d 0%, #743631 22%, #8d413b 50%, #743631 78%, #45201d 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#f1efef",
+    "--edge-line": "#6b4a4759",
+    "--top-edge": "#e0dddc",
+    "--glow": "#eeafa0",
+    "--accent": "#e65937",
+    "--paper": "#f7f6f6",
+    "--paper-ink": "#3c2725",
+    "--paper-muted": "#936f6c",
+    "--rule": "#5c3f3d2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1245,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1400,
+      "h": 1800,
+      "o": "p"
+    }
+  ]
+}

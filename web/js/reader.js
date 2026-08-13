@@ -1,6 +1,6 @@
 /* 取书 → 翻开 → 翻页 → 放回 */
 
-import { renderPage, coverHtml, esc } from './templates.js';
+import { renderPage, coverHtml, esc, spineFontSize } from './templates.js';
 
 const raf = () => new Promise((r) => requestAnimationFrame(r));
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -8,6 +8,14 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
 const FLY = 900;   // 飞出书架 + 转到正面
 const FADE = 200;  // 3D 书本与阅读器的交叉淡入
+
+/** 摊开时把跨中缝的横图拆成左右两半，各占一页 */
+const expand = (pages) => pages.flatMap((p) => (p.t === 'spread'
+  ? [{ ...p, t: 'bleedL' }, { ...p, t: 'bleedR' }]
+  : [p]));
+
+/** 单页模式没有中缝，跨页的横图整张放在一页里 */
+const flatten = (p) => (p.t === 'spread' ? { ...p, t: 'wide' } : p);
 
 export class Reader {
   constructor(els) {
@@ -40,6 +48,7 @@ export class Reader {
     st.setProperty('--w', `${s.w}px`);
     st.setProperty('--t', `${s.t}px`);
     st.setProperty('--u', `${s.h / 100}px`);
+    st.setProperty('--spine-fs', `${spineFontSize(book, s.t, s.h)}px`);
   }
 
   /* ------------------------------------------------------------ 构建 */
@@ -50,7 +59,6 @@ export class Reader {
     this.box.dataset.spine = cfg.spineMode || 'vertical';
     this.box.innerHTML = `
       <span class="face face--spine">
-        <span class="art">${cfg.spineArt()}</span>
         <span class="spine__title">${esc(meta.title)}</span>
       </span>
       <span class="face face--fore"></span>
@@ -62,9 +70,11 @@ export class Reader {
 
     if (this.mode === 'spread') {
       // pages[0] 是封面内页（空白衬页），pages[1] 是扉页，之后是内容页。
-      // 总数须为奇数，才能两两配成一叶。
-      const pages = [{ t: 'endpaper' }, { t: 'title' }, ...cfg.pages];
-      while (pages.length % 2 === 0) pages.push({ t: 'endpaper' });
+      const pages = [{ t: 'endpaper' }, { t: 'title' }, ...expand(cfg.pages)];
+      // 内容凑成偶数，最后再加一页：最后那页翻不到，只是末叶的背面，
+      // 少了它末叶就配不成对，正文最后一页会被吃掉。
+      if (pages.length % 2) pages.push({ t: 'endpaper' });
+      pages.push({ t: 'endpaper' });
 
       const leaves = [{ front: cover, back: renderPage(pages[0], book, 0) }];
       for (let i = 1; i < pages.length; i += 2) {
@@ -87,8 +97,8 @@ export class Reader {
       this.leaves = [...this.host.querySelectorAll('.leaf')];
       this.max = this.leaves.length - 1;
     } else {
-      // 单页模式跳过空白衬页，翻开即扉页
-      const pages = [{ t: 'title' }, ...cfg.pages];
+      // 单页模式跳过空白衬页，翻开即扉页；跨页的横图退回单页整张放
+      const pages = [{ t: 'title' }, ...cfg.pages.map(flatten)];
       const slides = [cover, ...pages.map((p, i) => renderPage(p, book, i + 1, 'single'))];
       this.host.innerHTML =
         `<div class="single"><div class="strip">${
@@ -233,10 +243,14 @@ export class Reader {
       else if (e.key === 'ArrowLeft') { this.goto(this.index - 1); }
     });
 
-    // 点书页左右半边翻页，点书外放回书架
+    // 点照片放大，点纸面左右半边翻页，点书外放回书架
     this.reader.addEventListener('click', (e) => {
       if (this.swiped) { this.swiped = false; return; }
       if (!this.isOpen || this.busy || e.target.closest('a')) return;
+
+      const ph = e.target.closest('.ph[data-zoom]');
+      if (ph && this.onZoom) { this.onZoom(ph.dataset.zoom, this.shots()); return; }
+
       const b = this.spreadBounds();
       const inside = e.clientX >= b.left && e.clientX <= b.right
         && e.clientY >= b.top && e.clientY <= b.bottom;
@@ -258,6 +272,18 @@ export class Reader {
     });
 
     addEventListener('resize', () => this.onResize(), { passive: true });
+  }
+
+  /** 这本书里所有照片，按页序去重，放大后可以左右翻着看 */
+  shots() {
+    const seen = new Set();
+    const out = [];
+    if (this.book.cover) out.push(this.book.cover.src);
+    seen.add(this.book.cover?.src);
+    for (const p of this.book.cfg.pages) {
+      if (p.src && !seen.has(p.src)) { seen.add(p.src); out.push(p.src); }
+    }
+    return out;
   }
 
   spreadBounds() {

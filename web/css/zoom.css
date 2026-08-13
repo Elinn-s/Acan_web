@@ -1,0 +1,75 @@
+/* 看原图：滚轮/捏合缩放，拖动看边缘 */
+
+.zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(8, 5, 3, .93);
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+.zoom.is-visible { opacity: 1; }
+
+.zoom__view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  touch-action: none;              /* 手势自己处理，别让浏览器抢走 */
+  -webkit-tap-highlight-color: transparent;
+}
+.zoom.is-zoomed-in .zoom__view { cursor: grab; }
+.zoom.is-zoomed-in .zoom__view:active { cursor: grabbing; }
+
+.zoom__img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;                 /* base.css 里 img 有 max-width，这里要按原始尺寸算 */
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.zoom__bar {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(14px, 3.4vh, 40px);
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 30px);
+  padding: .5em 1.1em;
+  border-radius: 999px;
+  background: rgba(12, 7, 4, .55);
+  border: 1px solid rgba(230, 205, 165, .16);
+  backdrop-filter: blur(8px);
+}
+
+.zoom__hint {
+  position: absolute;
+  left: 50%;
+  top: clamp(14px, 3vh, 34px);
+  z-index: 2;
+  transform: translateX(-50%);
+  font-size: clamp(10px, 1.1vw, 12px);
+  letter-spacing: .22em;
+  color: #8e7a5c;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.zoom.is-zoomed-in .zoom__hint { opacity: 0; }
+
+.close--zoom {
+  z-index: 2;
+  opacity: 1;
+}
+
+.zoom__hint--coarse { display: none; }
+@media (hover: none) {
+  .zoom__hint--fine { display: none; }
+  .zoom__hint--coarse { display: inline; }
+}

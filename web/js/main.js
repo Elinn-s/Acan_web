@@ -1,12 +1,23 @@
 import { loadLibrary } from './loader.js';
 import { Shelf } from './shelf.js';
 import { Reader } from './reader.js';
+import { Zoom } from './zoom.js';
 
 const $ = (id) => document.getElementById(id);
 
 try {
   const books = await loadLibrary();
   if (!books.length) throw new Error('manifest.json 里一本书都没有');
+
+  const zoom = new Zoom({
+    root: $('zoom'),
+    view: $('zoom-view'),
+    img: $('zoom-img'),
+    counter: $('zoom-count'),
+    prevBtn: $('zoom-prev'),
+    nextBtn: $('zoom-next'),
+    closeBtn: $('zoom-close'),
+  });
 
   const reader = new Reader({
     stage: $('stage'),
@@ -20,11 +31,13 @@ try {
     nextBtn: $('next'),
     folioEl: $('folio'),
     closeBtn: $('close'),
+    onZoom: (src, list) => zoom.open(src, list),
   });
 
   const shelf = new Shelf({
     inner: $('case-inner'),
     row: $('row'),
+    tags: $('tags'),
     books,
     onOpen: (book, el) => {
       $('hint').style.opacity = '0';

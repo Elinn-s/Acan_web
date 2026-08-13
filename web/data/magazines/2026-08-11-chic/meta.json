@@ -1,0 +1,169 @@
+{
+  "id": "2026-08-11-chic",
+  "ts": 20260811,
+  "title": "CHIC八月",
+  "masthead": "CHIC八月大片",
+  "date": "2026.08.12",
+  "intro": "这个夏天，她想带着“悠长假期”中积攒的勇气和信心，去把那些“不可能”，一件一件地变成“可能”。",
+  "note": "实体刊，AB封，6张小卡",
+  "source": "20260811CHIC",
+  "form": {
+    "height": 0.95,
+    "thickness": 0.1018,
+    "width": 0.75
+  },
+  "theme": {
+    "--cover": "linear-gradient(150deg, #5f352e, #261815)",
+    "--cover-ink": "#f6f1e8",
+    "--spine": "linear-gradient(90deg, #170d0b 0%, #442621 22%, #5c332c 50%, #442621 78%, #170d0b 100%)",
+    "--spine-ink": "#f3ece1",
+    "--edge": "#f0f0ef",
+    "--edge-line": "#6b4d4759",
+    "--top-edge": "#dfdedd",
+    "--glow": "#a0d1ee",
+    "--accent": "#37a5e6",
+    "--paper": "#f6f6f6",
+    "--paper-ink": "#3a2a27",
+    "--paper-muted": "#90746f",
+    "--rule": "#5c423d2b",
+    "--title-font": "\"Songti SC\", \"STSong\", \"SimSun\", serif",
+    "--body-font": "\"PingFang SC\", \"Microsoft YaHei\", \"Segoe UI\", sans-serif",
+    "--title-tracking": "0.18em",
+    "--spine-tracking": "0.28em"
+  },
+  "covers": [
+    {
+      "src": "cover-a.webp",
+      "w": 1175,
+      "h": 1600
+    },
+    {
+      "src": "cover-b.webp",
+      "w": 1175,
+      "h": 1600
+    }
+  ],
+  "pages": [
+    {
+      "src": "pages/01.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/02.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/03.webp",
+      "w": 1200,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/04.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/05.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/06.webp",
+      "w": 1200,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/07.webp",
+      "w": 1200,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/08.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/09.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/10.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/11.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/12.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/13.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/14.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/15.webp",
+      "w": 1800,
+      "h": 1200,
+      "o": "l"
+    },
+    {
+      "src": "pages/16.webp",
+      "w": 1200,
+      "h": 1800,
+      "o": "p"
+    },
+    {
+      "src": "pages/17.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p",
+      "group": "幕后"
+    },
+    {
+      "src": "pages/18.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p",
+      "group": "幕后"
+    },
+    {
+      "src": "pages/19.webp",
+      "w": 1350,
+      "h": 1800,
+      "o": "p",
+      "group": "幕后"
+    }
+  ],
+  "skipped": [
+    "大片.mp4",
+    "预告.jpg（解码失败：E:\\ICD_anymore\\Acan_web\\web\\data\\magazine\\20260811CHIC\\预告.jpg: bad seek to 575661）"
+  ]
+}
