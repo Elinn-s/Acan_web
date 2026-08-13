@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="GLASS placeholder 5">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#22513a"/>
+      <stop offset="1" stop-color="#0d2118"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fbf8f" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#0d2118"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.42"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="54"/></filter>
+    <filter id="soft2"><feGaussianBlur stdDeviation="15"/></filter>
+    <filter id="weave">
+      <feTurbulence type="turbulence" baseFrequency="0.012 0.05" numOctaves="3" seed="31"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="53"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect x="0" y="612" width="1600" height="288" fill="#0d2118" opacity=".6"/>
+  <rect x="256" y="270" width="180" height="342" rx="18" fill="#6fbf8f" opacity=".9"/>
+  <ellipse cx="896" cy="495" rx="153" ry="153" fill="#c8dba0" opacity=".85"/>
+  <rect x="1152" y="396" width="108" height="216" rx="54" fill="#f2efe0" opacity=".8"/>
+  <ellipse cx="800" cy="630" rx="640" ry="36" fill="#0d2118" opacity=".45" filter="url(#soft)"/>
+  <rect width="1600" height="900" fill="url(#vig)"/>
+  <rect width="1600" height="900" filter="url(#grain)" opacity=".14" style="mix-blend-mode:overlay"/>
+  <text x="72" y="859" font-family="Helvetica, Arial, sans-serif"
+        font-size="29" letter-spacing="11"
+        fill="#f2efe0" opacity=".5">GLASS / 05</text>
+</svg>

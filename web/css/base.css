@@ -1,0 +1,59 @@
+/* 基础重置与全局变量 */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  --wood-0: #1b100a;
+  --wood-1: #34200f;
+  --wood-2: #58351c;
+  --wood-3: #7a5228;
+  --wood-hi: #a97a44;
+  --room: #0a0603;
+
+  background: var(--room);
+  color: #e8ddcd;
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, p { margin: 0; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.fallback {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em 1.4em;
+  font-size: 14px;
+  letter-spacing: .06em;
+  color: #cbb693;
+  background: rgba(0, 0, 0, .5);
+  border: 1px solid rgba(203, 182, 147, .25);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .12s !important; }
+}
