@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600" role="img" aria-label="GLASS placeholder 1">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#22513a"/>
+      <stop offset="1" stop-color="#0d2118"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fbf8f" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#0d2118"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.45" r="0.75">
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.42"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="72"/></filter>
+    <filter id="soft2"><feGaussianBlur stdDeviation="20"/></filter>
+    <filter id="weave">
+      <feTurbulence type="turbulence" baseFrequency="0.012 0.05" numOctaves="3" seed="3"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="1"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="1600" fill="url(#sky)"/>
+  <circle cx="792" cy="528" r="168" fill="#f2efe0" opacity=".8" filter="url(#soft)"/>
+  <rect x="0" y="928" width="1200" height="672" fill="url(#deep)"/>
+  <rect x="72" y="1008" width="600" height="10" rx="5" fill="#c8dba0" opacity="0.40"/><rect x="204" y="1136" width="504" height="10" rx="5" fill="#c8dba0" opacity="0.33"/><rect x="336" y="1280" width="408" height="10" rx="5" fill="#c8dba0" opacity="0.26"/><rect x="468" y="1440" width="312" height="10" rx="5" fill="#c8dba0" opacity="0.19"/>
+  <ellipse cx="792" cy="928" rx="120" ry="24" fill="#f2efe0" opacity=".35" filter="url(#soft)"/>
+  <rect width="1200" height="1600" fill="url(#vig)"/>
+  <rect width="1200" height="1600" filter="url(#grain)" opacity=".14" style="mix-blend-mode:overlay"/>
+  <text x="54" y="1546" font-family="Helvetica, Arial, sans-serif"
+        font-size="38" letter-spacing="14"
+        fill="#f2efe0" opacity=".5">GLASS / 01</text>
+</svg>
