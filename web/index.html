@@ -3,69 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Acan · 电子书柜</title>
-  <meta name="description" content="Acan 杂志电子书柜">
+  <title>Acan · Magazine Archive</title>
+  <meta name="description" content="Acan 杂志影像档案">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/shelf.css">
   <link rel="stylesheet" href="css/reader.css">
-  <link rel="stylesheet" href="css/zoom.css">
 </head>
 <body>
   <header class="site-head">
-    <a class="wordmark" href="#" aria-label="返回书柜">ACAN</a>
+    <a class="wordmark" href="#" aria-label="返回杂志桌面">ACAN</a>
     <p>Magazine archive</p>
   </header>
 
   <main>
-    <section class="library" id="library" aria-labelledby="library-title">
-      <div class="library__head">
-        <div>
-          <p class="eyebrow">COLLECTION</p>
-          <h1 id="library-title">电子书柜</h1>
-        </div>
-        <p class="library__count" id="library-count"></p>
+    <section class="library" id="library" data-view="archive" aria-labelledby="library-title">
+      <div class="library__intro">
+        <p class="eyebrow">PRIVATE COLLECTION</p>
+        <h1 id="library-title">
+          <span class="title-archive">电子书柜</span>
+          <span class="title-room">沉浸房间</span>
+        </h1>
+        <p class="library__hint">
+          <span class="hint-archive">选择一本杂志查看完整资料</span>
+          <span class="hint-room">点击茶几上的杂志开始阅读</span>
+        </p>
+      </div>
+      <div class="view-toggle" role="group" aria-label="切换书柜展示方式">
+        <button type="button" data-view-button="archive" aria-pressed="true">资料站</button>
+        <button type="button" data-view-button="room" aria-pressed="false">房间</button>
       </div>
       <div class="book-grid" id="book-grid" role="list"></div>
-      <p class="fallback" id="fallback" hidden></p>
+      <p class="library__count" id="library-count"></p>
     </section>
 
-    <section class="detail" id="detail" aria-labelledby="detail-title" hidden>
-      <button class="back" id="back" type="button" aria-label="返回书柜">
-        <span aria-hidden="true">←</span> 返回书柜
+    <section class="archive-detail" id="archive-detail" aria-labelledby="archive-title" hidden>
+      <button class="archive-back" id="archive-back" type="button">
+        <span aria-hidden="true">←</span> 返回电子书柜
       </button>
-      <div class="detail__layout">
-        <div class="detail__cover" id="detail-cover"></div>
-        <div class="detail__content">
-          <article class="meta" id="detail-meta"></article>
-          <section class="gallery" aria-labelledby="gallery-title">
-            <div class="gallery__head">
-              <h3 id="gallery-title">全部图片</h3>
-              <span id="gallery-count"></span>
+      <div class="archive-detail__layout">
+        <figure class="archive-cover" id="archive-cover"></figure>
+        <div class="archive-detail__content">
+          <article class="archive-meta">
+            <p class="eyebrow" id="archive-date"></p>
+            <h2 id="archive-title"></h2>
+            <p class="archive-intro" id="archive-intro"></p>
+            <div class="archive-actions">
+              <button class="archive-read" id="archive-read" type="button">翻开阅读 <span aria-hidden="true">→</span></button>
+              <span id="archive-page-count"></span>
             </div>
-            <div class="thumb-grid" id="thumb-grid"></div>
+          </article>
+          <section class="archive-gallery" aria-labelledby="archive-gallery-title">
+            <header>
+              <h3 id="archive-gallery-title">全部图片</h3>
+              <span>封面与内页</span>
+            </header>
+            <div class="archive-thumbs" id="archive-thumbs"></div>
           </section>
         </div>
       </div>
     </section>
+
+    <section class="reader-stage" id="reader-stage" aria-label="杂志阅读器" hidden>
+      <div class="reader-stage__ambient" aria-hidden="true"></div>
+      <header class="reader-head">
+        <button class="reader-close" id="reader-close" type="button" aria-label="合上杂志并返回">×</button>
+        <div class="reader-title">
+          <strong id="reader-title"></strong>
+          <span id="reader-date"></span>
+        </div>
+        <button class="reader-zoom" id="reader-zoom" type="button" aria-pressed="false">放大</button>
+      </header>
+
+      <div class="reader-viewport" id="reader-viewport">
+        <button class="page-zone page-zone--prev" id="page-prev" type="button" aria-label="上一页">‹</button>
+        <div class="flipbook" id="flipbook" aria-live="polite">
+          <div class="paper-stack paper-stack--left" aria-hidden="true"></div>
+          <div class="paper-stack paper-stack--right" aria-hidden="true"></div>
+          <div class="book-gutter" aria-hidden="true"></div>
+          <div class="flipbook__leaves" id="flipbook-leaves"></div>
+          <div class="page-curl" id="page-curl" aria-hidden="true">
+            <div class="page-curl__face" id="page-curl-face"></div>
+            <div class="page-curl__shine"></div>
+          </div>
+        </div>
+        <button class="page-zone page-zone--next" id="page-next" type="button" aria-label="下一页">›</button>
+      </div>
+
+      <footer class="reader-footer">
+        <span id="left-pages">左侧 0 页</span>
+        <span class="reader-folio" id="reader-folio">封面</span>
+        <span id="right-pages">右侧 0 页</span>
+      </footer>
+      <div class="reader-progress">
+        <input id="reader-progress" type="range" min="0" max="1" value="0" step="1" aria-label="快速翻到指定页">
+      </div>
+      <p class="reader-tip">点击页边或左右滑动翻页 · 双击杂志放大</p>
+    </section>
   </main>
 
-  <div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="查看大图" hidden>
-    <div class="zoom__view" id="zoom-view">
-      <img class="zoom__img" id="zoom-img" alt="" draggable="false">
-    </div>
-    <div class="zoom__bar">
-      <button class="zoom__step" id="zoom-prev" type="button" aria-label="上一张">←</button>
-      <span class="zoom__count" id="zoom-count"></span>
-      <button class="zoom__step" id="zoom-next" type="button" aria-label="下一张">→</button>
-    </div>
-    <p class="zoom__hint">
-      <span class="zoom__hint--fine">滚轮缩放 · 拖动查看 · 双击复原</span>
-      <span class="zoom__hint--coarse">双指缩放 · 单指拖动 · 左右滑动换图</span>
-    </p>
-    <button class="zoom__close" id="zoom-close" type="button" aria-label="关闭大图">×</button>
-  </div>
-
   <noscript><p class="fallback">这个电子书柜需要启用 JavaScript。</p></noscript>
+  <script defer src="data/catalog.js"></script>
   <script defer src="js/app.js"></script>
 </body>
 </html>
